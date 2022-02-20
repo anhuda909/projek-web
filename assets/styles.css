@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&family=Lobster&family=Quicksand:wght@400;700&display=swap');
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Dosis', sans-serif;
+  background-image: url(assets/image/image.png);
+}
+footer {
+  padding: 20px;
+  color: white;
+  background-color: #222968;
+ text-align: center;
+ font-weight: bold;
+ overflow: auto;
+}
+header {
+  display: inline;
+}
+/*desain nav dan header*/
+nav{
+  display: flex;
+  background-color: royalblue;
+  justify-content: space-around;
+  color: aliceblue;
+  height: 50px;
+  align-items: center;
+  
+}
+nav .logo {
+  font-family: 'Lobster', cursive;
+  letter-spacing: 10px;
+}
+nav ul{
+  display: flex;
+  list-style: none;
+  width: 40%;
+  justify-content: space-between;
+}
+nav ul li a{
+  color: aliceblue;
+  text-decoration: none;
+  font-size: 0,8em;
+  font-weight: bold;
+}
+nav ul li a:hover{
+color: black;
+}
+/*dropdown*/
+
+/*bar menu*/
+.barMenu{
+display: none;
+flex-direction: column;
+height: 20px;
+justify-content: space-between;
+position: relative;
+}
+.barMenu input{
+  position: absolute;
+  width: 40px;
+  height: 28px;
+  left: -5px;
+  top: -3px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+.barMenu span{
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: aliceblue;
+  border-radius: 3px;
+  transition: all 1s;
+}
+/*animasi barmenu*/
+.barMenu span:nth-child(2){
+transform-origin: 0 0;
+}
+
+.barMenu span:last-child{
+  transform-origin: 0 100%;
+  }
+.barMenu input:checked ~ span:nth-child(2){
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+.barMenu input:checked ~ span:last-child{
+  transform: rotate(-45deg) translate(-1px, 0);
+}
+
+.barMenu input:checked ~ span:nth-child(3){
+  opacity: 0;
+  transform: scale(0)
+}
+/*desain konten*/
+#container{
+  display: flex;
+  flex-direction: row;
+}
+#conten {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+aside {
+  width: 30;
+  background-color: aliceblue;
+  overflow: auto;
+  margin-bottom: 70%;
+  margin-left: 5%;
+}
+/*desain artikel*/
+.card {
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  overflow: auto;
+  background-color: aliceblue;
+}
+section{
+    
+  padding: 20px;
+  overflow: auto;
+}
+/*desain image*/
+.img {
+  float: left;
+  margin: 10px;
+  width: 30%;
+  max-height: 300px;
+}
+.image{
+  width: 200px;
+}
+/*untuk display hp*/
+@media screen and (max-width: 768px) {
+  nav ul{
+    width: 50%;
+  }
+}
+@media screen and (max-width: 576px) {
+  #container{
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    overflow:auto;
+  }
+  .barMenu{
+    display: flex;
+  }
+  nav ul{
+    display: absolute;
+    right: 0;
+    top: 0;
+    width: 60%;
+    height: 100vh;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    background-color: royalblue;
+    z-index: -1;
+  }
+}
