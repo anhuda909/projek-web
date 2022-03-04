@@ -6,6 +6,7 @@
 }
 body{
   font-family: 'Dosis', sans-serif;
+  overflow-x: hidden;
   background-image: url(assets/image/image.png);
 }
 footer {
@@ -22,14 +23,23 @@ header {
 /*desain nav dan header*/
 nav{
   display: flex;
-  background-color: royalblue;
+  background-color: #222968;
   justify-content: space-around;
-  color: aliceblue;
+  color: white;
   height: 50px;
   align-items: center;
   
 }
-nav .logo {
+.logo {
+  font-family: 'Lobster', cursive;
+  letter-spacing: 10px;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-color: royalblue;
+}
+nav .logoBar{
+  display: flex;
   font-family: 'Lobster', cursive;
   letter-spacing: 10px;
 }
@@ -40,16 +50,22 @@ nav ul{
   justify-content: space-between;
 }
 nav ul li a{
-  color: aliceblue;
+  color: white;
   text-decoration: none;
-  font-size: 0,8em;
   font-weight: bold;
 }
 nav ul li a:hover{
 color: black;
 }
-/*dropdown*/
-
+/*sertif*/
+.box {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  max-height: 300px;
+  margin-left: 30%;
+  padding: 20px;
+}
 /*bar menu*/
 .barMenu{
 display: none;
@@ -76,26 +92,6 @@ position: relative;
   border-radius: 3px;
   transition: all 1s;
 }
-/*animasi barmenu*/
-.barMenu span:nth-child(2){
-transform-origin: 0 0;
-}
-
-.barMenu span:last-child{
-  transform-origin: 0 100%;
-  }
-.barMenu input:checked ~ span:nth-child(2){
-  transform: rotate(45deg) translate(-1px, -1px);
-}
-.barMenu input:checked ~ span:last-child{
-  transform: rotate(-45deg) translate(-1px, 0);
-}
-
-.barMenu input:checked ~ span:nth-child(3){
-  opacity: 0;
-  transform: scale(0)
-}
-/*desain konten*/
 #container{
   display: flex;
   flex-direction: row;
@@ -153,16 +149,30 @@ section{
   .barMenu{
     display: flex;
   }
+  nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  .logo{
+    display: none;
+  }
   nav ul{
-    display: absolute;
+    display:inherit;
+    position: absolute;
     right: 0;
     top: 0;
-    width: 60%;
+    width: 30%;
     height: 100vh;
     justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
-    background-color: royalblue;
+    background-color: #222968;
     z-index: -1;
+    transform: translateX(100%);
+    transition: all 1s;
+  }
+  nav ul.slide {
+    transform: translateX(0);
   }
 }
